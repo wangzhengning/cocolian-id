@@ -1,9 +1,10 @@
-package org.cocolian.id;
+package org.cocolian.id.server;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.commons.lang3.StringUtils;
+import org.cocolian.id.RedisTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
@@ -21,7 +22,7 @@ import redis.clients.jedis.ShardedJedisPool;
  * @date 2017年8月16日
  */
 @Configuration
-@ComponentScan("org.jigsaw.payment.id.rpc")
+@ComponentScan("org.cocolian.id.rpc")
 public class IdServerConfiguration {
 
 	@Value("${spring.redis.pool.maxIdle}")

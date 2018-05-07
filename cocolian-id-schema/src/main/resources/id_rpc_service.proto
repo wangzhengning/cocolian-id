@@ -1,8 +1,8 @@
 syntax = "proto2";
-option java_package = "org.cocolian.rpc";
+option java_package = "org.cocolian.id";
 
 /**
- * 生成订单ID和订单号；
+ * 生成ID；
  *
 **/
 message GenerateIdRequest {     
@@ -19,6 +19,6 @@ message GenerateIdRequest {
  *
 **/
 message  GenerateIdResponse {
-    repeated int64  ids = 1;
+    repeated int64  id = 1;
 }
 

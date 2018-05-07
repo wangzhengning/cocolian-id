@@ -17,8 +17,8 @@ package org.cocolian.id.rpc;
 
 
 import org.cocolian.id.rpc.GenerateIdController;
-import org.cocolian.rpc.IdService.GenerateIdRequest;
-import org.cocolian.rpc.IdService.GenerateIdResponse;
+import org.cocolian.id.IdRpcService.GenerateIdRequest;
+import org.cocolian.id.IdRpcService.GenerateIdResponse;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -50,8 +50,9 @@ public class TestGenerateIdController {
 		request.setUserName("payment");
 		request.setPassword("123456");
 		request.setEntityType(1);
+		request.setCount(5);
 		GenerateIdResponse response = controller.process(request
 				.build());
-		Assert.assertEquals(response.getIdsCount(), 0);
+		Assert.assertEquals(response.getIdCount(), request.getCount());
 	}
 }

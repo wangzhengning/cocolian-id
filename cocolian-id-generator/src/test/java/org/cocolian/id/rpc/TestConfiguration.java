@@ -15,10 +15,12 @@
  */
 package org.cocolian.id.rpc;
 
+import org.cocolian.id.server.IdServerConfiguration;
 import org.cocolian.rpc.server.RpcServerConfiguration;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Import;
 
 /**
  * 测试配置。
@@ -29,6 +31,7 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 @EnableAutoConfiguration(exclude={DataSourceAutoConfiguration.class,RpcServerConfiguration.class})
+@Import(IdServerConfiguration.class)
 public class TestConfiguration {
 
 }
