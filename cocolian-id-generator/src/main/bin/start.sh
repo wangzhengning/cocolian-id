@@ -6,7 +6,7 @@
  PRODUCTION_ROOT_DIR="$(dirname ${PRODUCTION_ROOT_DIR})"
  echo "running in ${PRODUCTION_ROOT_DIR}"
  JAR_LIB="${PRODUCTION_ROOT_DIR}/lib/*"
- MAIN_CLASS="org.cocolian.data.server.DataServer"
+ MAIN_CLASS="org.cocolian.id.server.IdServer"
 
  SERVICE_JAR=$PRODUCTION_ROOT_DIR/${project.build.finalName}.jar
 
