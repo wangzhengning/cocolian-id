@@ -24,7 +24,7 @@ import java.util.List;
  * @description:zk(基于apache-curator)实现的信号器
  * @author: zn.wang , Created in 12:25 2018/6/24.
  */
-public class ZkDistributedSequence implements DistributedSequence{
+public class ZkDistributedSequence {
 
     private static final Logger logger = LoggerFactory.getLogger(ZkDistributedSequence.class);
 
@@ -78,7 +78,6 @@ public class ZkDistributedSequence implements DistributedSequence{
         }
     }
 
-    @Override
     public Long sequence(String sequenceName) {
         try{
             return InnerNodeBuilder.defaultGetNodeVersion(client , sequenceName);

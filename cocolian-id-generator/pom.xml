@@ -31,7 +31,7 @@
 			<groupId>org.cocolian</groupId>
 			<artifactId>cocolian-id-schema</artifactId>
 			<version>1.0.0-SNAPSHOT</version>
-		</dependency>	
+		</dependency>
 	
 	</dependencies>
 	

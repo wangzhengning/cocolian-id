@@ -1,10 +1,6 @@
 package org.cocolian.id.rpc;
 
-import jdk.nashorn.internal.objects.annotations.Getter;
-import org.apache.commons.lang3.RandomUtils;
 import org.cocolian.id.IdRpcService;
-import org.cocolian.id.RedisTemplate;
-import org.cocolian.id.service.DistributedSequence;
 import org.cocolian.id.service.ZkDistributedSequence;
 import org.cocolian.metric.Timer;
 import org.cocolian.rpc.NotFoundException;
@@ -16,10 +12,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
-import redis.clients.jedis.ShardedJedisPool;
-
-import javax.annotation.Resource;
-import java.util.Iterator;
 
 /**
  * @description:
@@ -37,10 +29,10 @@ public class ZkIdController extends AbstractGenerateIdController{
     private String zkIdGeneratorPath;
 
     @Autowired
-    private DistributedSequence distributedSequence;
+    private ZkDistributedSequence distributedSequence;
 
     @Bean
-    public DistributedSequence instanceBean(){
+    public ZkDistributedSequence instanceBean(){
         return new ZkDistributedSequence(zookeeperAddress);
     }
 
