@@ -8,6 +8,9 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.util.CollectionUtils;
+
+import java.util.List;
 
 import static org.junit.Assert.*;
 
@@ -34,6 +37,13 @@ public class ZkIdControllerTest {
         request.setCount(5);
         IdRpcService.GenerateIdResponse response = zkIdController.process(request
                 .build());
+        List<Long> sequences = response.getIdList();
+        if(!CollectionUtils.isEmpty(sequences)){
+            System.out.println("sequences:{}" + sequences);
+        }
+        else {
+            System.out.println("empty...");
+        }
     }
 
 }

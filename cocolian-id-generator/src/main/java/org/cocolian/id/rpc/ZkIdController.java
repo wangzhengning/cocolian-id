@@ -19,6 +19,7 @@ import org.springframework.stereotype.Component;
 import redis.clients.jedis.ShardedJedisPool;
 
 import javax.annotation.Resource;
+import java.util.Iterator;
 
 /**
  * @description:
@@ -49,8 +50,8 @@ public class ZkIdController extends AbstractGenerateIdController{
         logger.info("zkIdController {} id for {}", request.getCount(), request.getUserName());
         IdRpcService.GenerateIdResponse.Builder response = IdRpcService.GenerateIdResponse.newBuilder();
         for(int i = 0; i < request.getCount(); i++){
-           Long sequence = distributedSequence.sequence("/wzn_test");
-           //System.out.println("sequence:{}" + sequence);
+           Long sequence = distributedSequence.sequence(zkIdGeneratorPath);
+           response.addId(sequence);
         }
         return response.build();
     }
