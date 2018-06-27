@@ -29,6 +29,7 @@ import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringRunner;
 
+
 /**
  * @author shamphone@gmail.com
  * @version 1.0.0
@@ -44,7 +45,7 @@ public class TestGenerateIdController {
 	private GenerateIdController controller;
 
 	@Test
-	public void testGen() throws Exception {		
+	public void testGen() throws Exception {
 		GenerateIdRequest.Builder request = GenerateIdRequest
 				.newBuilder();
 		request.setUserName("payment");
@@ -53,6 +54,9 @@ public class TestGenerateIdController {
 		request.setCount(5);
 		GenerateIdResponse response = controller.process(request
 				.build());
+		System.out.println("idCount:{}" + response.getIdCount());
+
+
 		Assert.assertEquals(response.getIdCount(), request.getCount());
 	}
 }

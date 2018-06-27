@@ -23,7 +23,6 @@ import redis.clients.jedis.ShardedJedisPool;
  */
 public class RedisTemplate {
 
-   
     private ShardedJedisPool shardedJedisPool;
     
     @Autowired
